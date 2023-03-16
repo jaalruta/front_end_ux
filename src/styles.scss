@@ -1,0 +1,62 @@
+$primary: #080000;
+$danger: #FF3B58;
+$info: #F2EABC;
+$font-family-base: "Roboto";
+$btn-padding-y : 0.8rem;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+@mixin background($imgpath,$position:0 0,$repeat: no-repeat) {
+  background: {
+      image: url($imgpath);
+      position: $position;
+      repeat: $repeat;
+  }
+}
+
+body{
+  @include background("/assets/fondo.jpg",$repeat: repeat);
+}
+
+.titulo_principal{
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 56px;
+  color: #000000;
+}
+
+.sombra{
+  text-shadow: 6px 9px 5px rgba(0, 0, 0, 0.25);
+}
+
+.texto_boton{
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+}
+
+.icon-cerrar {
+  transform: scale(1.5);
+}
+
+.caja_inputs{
+
+  box-sizing: border-box;
+  background: #FAF7E7;
+  border: 1px solid #000000;
+}
+
+
+
+
+@import '../node_modules/ngx-toastr/toastr-bs5-alert';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="row justify-content-center pt-5 ">
+     <div class="col-4 caja_inputs">
+       <div class="row pt-3">
+         <div class ='col'>
+           <h1 class="m-0"><b>Crear Cuenta</b></h1>
+         </div>
+         <div class ='col d-flex justify-content-end align-self-center'>
+            <a routerLink="/" routerLinkActive="active">
+              <mat-icon  aria-hidden="false" aria-label="Cerrar" fontIcon="close"></mat-icon>
+            </a>
+         </div>
+       </div>
+       <div class="row pt-3">
+         <div class ='col'>
+           <div class="mb-3">
+             <label for="correoUsuario" class="form-label">Correo Electronico</label>
+             <input type="email" class="form-control" id="correoUsuario" value='pruebas@alarmaapp.com' placeholder="pruebas@alarmaapp.com">
+           </div>
+         </div>
+       </div>
+       <div class="row">
+         <div class ='col'>
+           <div class="mb-3">
+             <label for="nombreUsuario" class="form-label">Nombres y Apellidos</label>
+             <input type="text" class="form-control" id="nombreUsuario" value='Juan Perez'>
+           </div>
+         </div>
+       </div>
+       <div class="row">
+         <div class ='col'>
+           <div class="mb-3">
+             <label for="contrasenaUsuario" class="form-label">Contraseña</label>
+             <input type="password" class="form-control" id="contrasenaUsuario" value='pruebas@alarmaapp.com'>
+           </div>
+         </div>
+       </div>
+       <div class="row">
+         <div class ='col'>
+           <div class="mb-3">
+             <label for="confirmarContrasenaUsuario" class="form-label">Confirmar Contraseña</label>
+             <input type="password" class="form-control" id="confirmarContrasenaUsuario" value='pruebas@alarmaapp.com'>
+           </div>
+         </div>
+       </div>
+       <div class="row">
+         <div class ='col-8 mb-3 d-grid gap-2v mx-auto'>
+             <button class="btn btn-info texto_boton" type="button" (click)="signup()" >Crear Cuenta</button>
+         </div>
+       </div>
+     </div>
+  </div>
+ </div>
+
+
+<!--Modales-->
+<div class="modal" tabindex="-1" id="modalConfirmacion" >
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cuenta Creada</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Tu Cuenta Se creo correctamente</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" >Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>

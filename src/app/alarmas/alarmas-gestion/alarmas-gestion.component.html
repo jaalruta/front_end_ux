@@ -1,0 +1,253 @@
+<app-alarmas-header></app-alarmas-header>
+<div class="container">
+  <div class="row justify-content-center pt-5 ">
+     <div class="col-8 caja_inputs">
+       <div class="row pt-3">
+         <div class ='col'>
+           <h1 class="m-0"><b>{{texto_titulo}}</b></h1>
+         </div>
+         <div class ='col-2 d-flex justify-content-end align-self-center'>
+          <a routerLink="/main" routerLinkActive="active">
+           <mat-icon  aria-hidden="false" aria-label="Cerrar" fontIcon="close"></mat-icon>
+          </a>
+         </div>
+       </div>
+       <div class="row pt-3">
+         <div class ='col'>
+          <label for="contrasenaUsuario" class="form-label">Dias</label>
+           <div class="mb-3">
+
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="Lunes" checked>
+                <label class="form-check-label" >Lunes</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="Martes"  checked>
+                <label class="form-check-label" >Martes</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="Miercoles" checked>
+                <label class="form-check-label" >Miercoles</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="Jueves">
+                <label class="form-check-label" >Jueves</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="Viernes"  checked>
+                <label class="form-check-label" >Viernes</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="Sabado">
+                <label class="form-check-label" >Sabado</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" value="Domingo">
+                <label class="form-check-label" >Domingo</label>
+              </div>
+           </div>
+         </div>
+        </div>
+        <div class="row pt-3">
+            <div class ='col-2'>
+              <label for="horaAlarma" class="form-label">Hora</label>
+              <div class="mb-3">
+                <select class="form-select">
+                  <option value=""></option>
+                  <option value="">0</option>
+                  <option *ngFor="let item of generarRango(23); index as i;" value="">{{i+1}}</option>
+                </select>
+              </div>
+            </div>
+            <div class ='col-2'>
+              <label for="horaAlarma" class="form-label">Minuto</label>
+              <div class="mb-3">
+                <select class="form-select">
+                  <option value=""></option>
+                  <option value="">0</option>
+                  <option *ngFor="let item of generarRango(59); index as i;" value="">{{i+1}}</option>
+                </select>
+              </div>
+            </div>
+        </div>
+        <div class="row pt-3">
+          <div class ='col'>
+            <div class="mb-3">
+              <label for="mensajeAlarma" class="form-label">Mensaje de alarma</label>
+              <input type="text" class="form-control" id="mensajeAlarma" value="Mensaje de prueba de la alarma">
+            </div>
+          </div>
+        </div>
+        <div class="row pt-3">
+          <div class ='col-4'>
+            <div class="mb-3">
+              <label for="ClasificacionAlarma" class="form-label">Clasificacion</label>
+              <select id="ClasificacionAlarma" class="form-select">
+                <option>Alarmas Diarias</option>
+                <option>Medicamentos</option>
+              </select>
+            </div>
+          </div>
+          <div class ='col-4 align-self-center'>
+            <div>
+              <button type="button" class="btn btn-link" (click)="crearClasificacion()">Crear Clasificación</button>
+            </div>
+          </div>
+        </div>
+        <div class="row pt-3">
+          <div class ='col-4'>
+            <div class="mb-3">
+              <label for="ubicacionAlarma" class="form-label">Ubicación</label>
+              <select id="ubicacionAlarma" class="form-select">
+                <option>Casa</option>
+                <option>Oficina</option>
+              </select>
+            </div>
+          </div>
+          <div class ='col-4 align-self-center'>
+            <div>
+              <button type="button" class="btn btn-link" (click)="crearUbicacion()">Agregar Ubicación</button>
+            </div>
+          </div>
+        </div>
+        <div class="row pt-3">
+          <div class ='col-4'>
+            <div class="mb-3">
+              <label for="iotAlarma" class="form-label">Internet de las cosas</label>
+              <select id="iotAlarma" class="form-select">
+                <option>Cafetera - Prender</option>
+                <option>Radio - Prender</option>
+              </select>
+            </div>
+          </div>
+          <div class ='col-4 align-self-center'>
+            <div>
+              <button type="button" class="btn btn-link" (click)="crearInteraccion()">Agregar Interacción</button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class ='col-4 mt-3 mb-3 d-grid gap-2v mx-auto'>
+              <button class="btn btn-info d-flex  align-content-between  texto_boton" type="button" (click)="gestionAlarma()">
+                <i class="material-icons mr-1 pe-3">
+                  alarm_add
+                </i>
+                <span class="ps-5">{{texto_boton}}</span>
+              </button>
+          </div>
+        </div>
+      </div>
+  </div>
+ </div>
+
+
+ <!--Modales-->
+ <div class="modal" tabindex="-1" id="modalClasificacion" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Clasificación</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Ingresa el nombre de la clasificación</p>
+        <div class="row pt-3">
+          <div class ='col'>
+            <div class="mb-3">
+              <input type="text" class="form-control" >
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="finalizaClasificacion()" >Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal" tabindex="-1" id="modalUbicacion" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Selecciona Una Ubicación</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="/assets/mapa.jpg" style="cursor: pointer;" class="img-fluid" alt="Mapa dummy" (click)="finalizaUbicacion()">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="finalizaUbicacion()" >Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal" tabindex="-1" id="modalIOTdispositivo" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">IOT</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Selecciona un dispositivo</p>
+        <div class="row pt-3">
+          <div class ='col'>
+            <div class="mb-3 d-flex justify-content-center">
+              <button class="btn btn-info texto_boton" type="button" (click)="iotAcciones()">Cafetera</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="finalizaUbicacion()" >Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" id="modalIOTaccion" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">IOT</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Selecciona una Acción</p>
+        <div class="row pt-3">
+          <div class ='col'>
+            <div class="mb-3 d-flex justify-content-center">
+              <button class="btn btn-info texto_boton" type="button" (click)="iotFinalizar()">Prender</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal" tabindex="-1" id="modalCreacionFinaliza" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Ok</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>{{texto_mensaje}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" >Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>

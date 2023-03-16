@@ -5,7 +5,7 @@
   "projects": {
     "alarmaApp": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {"@schematics/angular:component": {"style": "scss"}},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -25,9 +25,15 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/@popperjs/core/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+
+            ]
           },
           "configurations": {
             "production": {
@@ -87,12 +93,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.scss"
             ],
             "scripts": []
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "73d82309-e69c-47a6-80f2-09909e6bb739"
   }
 }
