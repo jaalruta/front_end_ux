@@ -49,24 +49,10 @@
          </div>
         </div>
         <div class="row pt-3">
-            <div class ='col-2'>
+            <div class ='col-5'>
               <label for="horaAlarma" class="form-label">Hora</label>
               <div class="mb-3">
-                <select class="form-select">
-                  <option value=""></option>
-                  <option value="">0</option>
-                  <option *ngFor="let item of generarRango(23); index as i;" value="">{{i+1}}</option>
-                </select>
-              </div>
-            </div>
-            <div class ='col-2'>
-              <label for="horaAlarma" class="form-label">Minuto</label>
-              <div class="mb-3">
-                <select class="form-select">
-                  <option value=""></option>
-                  <option value="">0</option>
-                  <option *ngFor="let item of generarRango(59); index as i;" value="">{{i+1}}</option>
-                </select>
+                <ngx-timepicker-field [defaultTime]="'11:11 am'" class="form-control"></ngx-timepicker-field>
               </div>
             </div>
         </div>

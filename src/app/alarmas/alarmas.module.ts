@@ -10,11 +10,13 @@ import { AlarmasPrincipalComponent } from './alarmas-principal/alarmas-principal
 import { AlarmasGestionComponent } from './alarmas-gestion/alarmas-gestion.component';
 import { RouterModule } from '@angular/router';
 import {MatIconModule} from '@angular/material/icon';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    MatIconModule
+    MatIconModule,
+    NgxMaterialTimepickerModule
   ],
   declarations: [
       AlarmasHomeComponent,
